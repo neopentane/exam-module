@@ -1,0 +1,10 @@
+{%extends "myexam/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% for i in questions %}
+<h1>{{i.question}}</h1>
+{% for j in i.question.choices.all() %}
+{{j.choice}}
+{% endfor %}
+{% endfor %}
+{% endblock content %}
