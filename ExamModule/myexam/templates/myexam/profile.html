@@ -4,7 +4,7 @@
 <h1> Available Tests </h1>
 {% for exam in exams %}
 <h1>
-<a class="btn-link" href="{% url 'exam' %}?exam={{exam.exam}}">  {{exam.exam}}  </a>
+<a class="btn-link" href="{% url 'exam' %}?exam={{exam.exam}}">{{forloop.counter}}:  {{exam.exam}}  </a>
 </h1>
 {% endfor %}
 {% endblock content %}

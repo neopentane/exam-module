@@ -1,10 +1,25 @@
 {%extends "myexam/base.html" %}
 {% load crispy_forms_tags %}
 {% block content %}
+
+
 {% for i in questions %}
-<h1>{{i.question}}</h1>
-{% for j in i.question.choices.all() %}
-{{j.choice}}
+
+<h4 class="d-inline p-2 bg-primary text-white">{{forloop.counter}}]       {{i.question}}</h4>
+<h6></h6>
+<form type="post">
+    {% csrf_token %}
+    {% for j in i.choices.all %}
+    <h4>
+    <label class="radio-inline">
+        <input type="radio" id="{{forloop.counter}}" name="h-type"+{{forloop.counter}} value="{{forloop.counter}}"/>
+    {{forloop.counter}}     {{j.choice}}</h4>
+    </label>
+    {% endfor %}
+
+</form>
 {% endfor %}
-{% endfor %}
+<div class="form-group">
+    <a class="btn btn-outline-info" type="submit" href='{% url  'result'  %}'>Submit</a>
+</div>
 {% endblock content %}

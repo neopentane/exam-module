@@ -1,0 +1,12 @@
+{%extends "myexam/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<h1> Socre of {{request.user }} is</h1>
+{% for i in ans %}
+{% if forloop.counter == 1 %}
+<h1>{{i}} </h1>
+{% endif %}
+{% endfor %}
+ <a class="btn btn-outline-info" type="submit" href="{%url 'profile'%}">Save And Exit</a>
+{% endblock content %}
